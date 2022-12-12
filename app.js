@@ -347,13 +347,13 @@ app.put("/todos/:todoId/", async (request, response) => {
 
 app.delete("/todos/:todoId/", async (request, response) => {
   const { todoId } = request.params;
-  const deleteTodoQuery = `
+  const deleteTodoQuerys = `
   DELETE FROM
     todo
   WHERE
     id = ${todoId};`;
 
-  await database.run(deleteTodoQuery);
+  await database.run(deleteTodoQuerys);
   response.send("Todo Deleted");
 });
 
